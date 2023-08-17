@@ -236,5 +236,51 @@ function accum(str){
     }
     return mumble.slice(0, -1);
 }
-console.log(accum("RqaEzty"));
+// console.log(accum("RqaEzty"));
 
+// Ex6.2 - Counting Duplicates
+function countDuplicates(input) {
+    const charCount = {};
+    let duplicateCount = 0;
+  
+    const normalizedInput = input.toLowerCase();
+  
+    for (const char of normalizedInput) {
+      if (char.match(/[a-z0-9]/)) {
+        if (charCount[char]) {
+          if (charCount[char] === 1) {
+            duplicateCount++;
+          }
+          charCount[char]++;
+        } else {
+          charCount[char] = 1;
+        }
+      }
+    }
+  
+    return duplicateCount;
+  }
+
+// Ex6.3 - organize strings
+function longest(s1, s2) {
+    const combinedString = s1 + s2;
+    const distinctCharacters = [...new Set(combinedString)];
+    const sortedDistinctCharacters = distinctCharacters.sort().join('');
+    return sortedDistinctCharacters;
+}
+
+// Ex6.4 - isogram
+function isIsogram(str) {
+    const normalizedStr = str.toLowerCase();
+    const charSet = new Set();
+  
+    for (const char of normalizedStr) {
+      if (charSet.has(char)) {
+        return false;
+      }
+      charSet.add(char);
+    }
+  
+    return true;
+  }
+  
